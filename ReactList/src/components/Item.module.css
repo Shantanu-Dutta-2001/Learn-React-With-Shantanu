@@ -1,0 +1,9 @@
+.myList {
+  background-color: rgb(242, 177, 177);
+  padding: 10px;
+  border-bottom: 1px solid;
+}
+.mySpan {
+  font-weight: 500;
+  color: indigo;
+}
