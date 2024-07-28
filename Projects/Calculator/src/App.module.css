@@ -1,0 +1,9 @@
+.calculator {
+  width: calc(100% - 350px);
+  min-width: 370px;
+  max-width: 440px;
+  justify-content: center;
+  margin: auto;
+  border: 2px solid red;
+  border-radius: 5px;
+}
