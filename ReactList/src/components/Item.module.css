@@ -7,3 +7,7 @@
   font-weight: 500;
   color: indigo;
 }
+
+.myButton {
+  float: right;
+}
