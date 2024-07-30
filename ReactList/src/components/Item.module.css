@@ -6,6 +6,7 @@
 .mySpan {
   font-weight: 500;
   color: indigo;
+  float: left;
 }
 
 .myButton {
