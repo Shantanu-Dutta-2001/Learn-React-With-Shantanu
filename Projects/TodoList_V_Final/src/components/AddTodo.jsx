@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MdOutlineAddTask } from "react-icons/md";
 import styles from "./AddTodo.module.css";
 
 function AddTodo({ onNewItemAdd }) {
@@ -42,7 +43,7 @@ function AddTodo({ onNewItemAdd }) {
             className="btn btn-success kg-button"
             onClick={handleAddBtnClick}
           >
-            Add
+            <MdOutlineAddTask />
           </button>
         </div>
       </div>

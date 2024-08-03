@@ -1,3 +1,5 @@
+import { MdOutlineRemoveCircleOutline } from "react-icons/md";
+
 function TodoItem({ todoName, todoDate, onDeleteClick }) {
   return (
     <div className="container">
@@ -10,7 +12,7 @@ function TodoItem({ todoName, todoDate, onDeleteClick }) {
             className="btn btn-danger kg-button"
             onClick={() => onDeleteClick(todoName)}
           >
-            Delete
+            <MdOutlineRemoveCircleOutline />
           </button>
         </div>
       </div>
