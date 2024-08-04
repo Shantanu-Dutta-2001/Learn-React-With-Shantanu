@@ -3,20 +3,16 @@ import { MdOutlineAddTask } from "react-icons/md";
 import styles from "./AddTodo.module.css";
 
 function AddTodo({ onNewItemAdd }) {
-  const [todoName, setTodoName] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  const todoNameElement = useRef();
+  const dueDateElement = useRef();
 
-  const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
-  const handleDueDateChange = (event) => {
-    setDueDate(event.target.value);
-  };
   const handleAddBtnClick = (event) => {
     event.preventDefault();
+    const todoName = todoNameElement.current.value;
+    const dueDate = dueDateElement.current.value;
+    todoNameElement.current.value = "";
+    dueDateElement.current.value = "";
     onNewItemAdd(todoName, dueDate);
-    setTodoName("");
-    setDueDate("");
   };
   return (
     <div className="container text-center">
@@ -25,17 +21,15 @@ function AddTodo({ onNewItemAdd }) {
           <input
             type="text"
             className={styles.todoInput}
-            value={todoName}
+            ref={todoNameElement}
             placeholder="Enter Todo Here"
-            onChange={handleNameChange}
           />
         </div>
         <div className="col-4">
           <input
             className={styles.todoInput}
             type="date"
-            value={dueDate}
-            onChange={handleDueDateChange}
+            ref={dueDateElement}
           />
         </div>
         <div className="col-2">
