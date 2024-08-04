@@ -10,7 +10,10 @@ function App() {
 
   const onNewItemAdd = (itemName, itemDueDate) => {
     const newListItem = { name: itemName, dueDate: itemDueDate };
-    setTodoListItem([...todoListItem, newListItem]);
+    // setTodoListItem([...todoListItem, newListItem]);
+
+    // functional update to avoid async updates using spread operator
+    setTodoListItem((currVal) => [...currVal, newListItem]);
   };
 
   const onDeleteItem = (todoItemName) => {
