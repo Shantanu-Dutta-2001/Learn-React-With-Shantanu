@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { MdOutlineRemoveCircleOutline } from "react-icons/md";
+import { todoListItemContext } from "../dataStore/todo-items-store";
 
-function TodoItem({ todoName, todoDate, onDeleteClick }) {
+function TodoItem({ todoName, todoDate }) {
+  const contextObj = useContext(todoListItemContext);
+  const deleteItem = contextObj.deleteItem;
   return (
     <div className="container">
       <div className="row kg-row">
@@ -10,7 +14,7 @@ function TodoItem({ todoName, todoDate, onDeleteClick }) {
           <button
             type="button"
             className="btn btn-danger kg-button"
-            onClick={() => onDeleteClick(todoName)}
+            onClick={() => deleteItem(todoName)}
           >
             <MdOutlineRemoveCircleOutline />
           </button>

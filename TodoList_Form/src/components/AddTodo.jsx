@@ -1,8 +1,11 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { MdOutlineAddTask } from "react-icons/md";
 import styles from "./AddTodo.module.css";
+import { todoListItemContext } from "../dataStore/todo-items-store";
 
-function AddTodo({ onNewItemAdd }) {
+function AddTodo() {
+  const contextObj = useContext(todoListItemContext);
+  const addNewItem = contextObj.addNewItem;
   const todoNameElement = useRef();
   const dueDateElement = useRef();
 
@@ -12,7 +15,7 @@ function AddTodo({ onNewItemAdd }) {
     const dueDate = dueDateElement.current.value;
     todoNameElement.current.value = "";
     dueDateElement.current.value = "";
-    onNewItemAdd(todoName, dueDate);
+    addNewItem(todoName, dueDate);
   };
   return (
     <div className="container text-center">

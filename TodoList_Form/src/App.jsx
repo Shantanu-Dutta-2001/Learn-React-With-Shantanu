@@ -4,6 +4,7 @@ import "./App.css";
 import TodoItems from "./components/TodoItems";
 import { useState } from "react";
 import WelcomeMsg from "./components/WelcomeMsg";
+import { todoListItemContext } from "./dataStore/todo-items-store";
 
 function App() {
   let [todoListItem, setTodoListItem] = useState([]);
@@ -24,15 +25,20 @@ function App() {
   };
 
   return (
-    <center className="todo-container">
-      <AppName />
-      <AddTodo onNewItemAdd={onNewItemAdd} />
-      {todoListItem.length === 0 && <WelcomeMsg></WelcomeMsg>}
-      <TodoItems
-        todoItems={todoListItem}
-        onDeleteClick={onDeleteItem}
-      ></TodoItems>
-    </center>
+    <todoListItemContext.Provider
+      value={{
+        item: todoListItem,
+        addNewItem: onNewItemAdd,
+        deleteItem: onDeleteItem,
+      }}
+    >
+      <center className="todo-container">
+        <AppName />
+        <AddTodo />
+        <WelcomeMsg></WelcomeMsg>
+        <TodoItems></TodoItems>
+      </center>
+    </todoListItemContext.Provider>
   );
 }
 

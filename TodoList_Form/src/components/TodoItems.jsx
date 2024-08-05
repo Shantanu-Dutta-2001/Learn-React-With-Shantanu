@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import TodoItem from "./TodoItem";
+import { todoListItemContext } from "../dataStore/todo-items-store";
 
-const TodoItems = ({ todoItems, onDeleteClick }) => {
+const TodoItems = () => {
+  const contextObj = useContext(todoListItemContext);
+  const todoItems = contextObj.item;
   return (
     <>
       <div className="items-container">
@@ -9,7 +13,6 @@ const TodoItems = ({ todoItems, onDeleteClick }) => {
             key={item.name}
             todoName={item.name}
             todoDate={item.dueDate}
-            onDeleteClick={onDeleteClick}
           ></TodoItem>
         ))}
       </div>
