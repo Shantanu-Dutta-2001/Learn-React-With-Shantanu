@@ -1,0 +1,9 @@
+.main-container {
+  display: flex;
+}
+.content-container {
+  width: 100%;
+}
+.sidebar {
+  height: calc(100vh - 0px);
+}
