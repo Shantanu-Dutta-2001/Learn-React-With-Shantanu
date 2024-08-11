@@ -7,3 +7,11 @@
 .sidebar {
   height: calc(100vh - 0px);
 }
+.postCard {
+  margin: 20px 50px;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+.hashTag {
+  margin: 2px;
+}
