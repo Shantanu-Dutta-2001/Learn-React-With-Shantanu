@@ -11,7 +11,12 @@
   margin: 20px 50px;
   border: 2px solid grey;
   border-radius: 5px;
+  min-width: 30rem;
 }
 .hashTag {
   margin: 2px;
+}
+.reactions {
+  margin-top: 5px;
+  width: 100%;
 }

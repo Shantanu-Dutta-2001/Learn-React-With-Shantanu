@@ -5,11 +5,11 @@ import { PostList as PostListData } from "../store/post-list-store";
 const PostList = () => {
   const { postList } = useContext(PostListData);
   return (
-    <>
-      {postList.map((post) => {
-        <Post key={post.postId} post={post} />;
-      })}
-    </>
+    <div>
+      {postList.map((item) => (
+        <Post key={item.postId} post={item}></Post>
+      ))}
+    </div>
   );
 };
 
