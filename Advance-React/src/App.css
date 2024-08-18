@@ -1,0 +1,32 @@
+.main-container {
+  display: flex;
+}
+.content-container {
+  width: 100%;
+}
+.sidebar {
+  height: calc(100vh - 0px);
+}
+.postCard {
+  margin: 20px 50px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  min-width: 30rem;
+}
+.hashTag {
+  margin: 2px;
+}
+.reactions {
+  margin-top: 5px;
+  width: 100%;
+}
+.create-post {
+  margin: 20px 50px;
+  width: 80%;
+  padding: 20px;
+  border: 2px solid grey;
+  border-radius: 10px;
+}
+.welcomeMessage {
+  margin: 100px 0px;
+}
