@@ -30,3 +30,10 @@
 .welcomeMessage {
   margin: 100px 0px;
 }
+.loadingSpinner {
+  margin: 100px 0px;
+  padding: 20% 40%;
+}
+.myspinner {
+  margin: 10px;
+}
