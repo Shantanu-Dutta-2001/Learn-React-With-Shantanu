@@ -1,54 +1,37 @@
 import { useRef } from "react";
 import { PostList } from "../store/post-list-store";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Form, redirect, useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
-  const { addPost } = useContext(PostList);
-  const navigate = useNavigate();
-  const userIdElement = useRef();
-  const postTitleElement = useRef();
-  const postBodyElement = useRef();
-  const tagsElement = useRef();
+  // const { addPost } = useContext(PostList);
+  // const navigate = useNavigate();
+  // const userIdElement = useRef();
+  // const postTitleElement = useRef();
+  // const postBodyElement = useRef();
+  // const tagsElement = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const userId = userIdElement.current.value;
-    const title = postTitleElement.current.value;
-    const body = postBodyElement.current.value;
-    const tags = tagsElement.current.value.split(" ");
-    const reactions = { likes: Number((Math.random() * 100).toFixed(0)) };
-
-    fetch("https://dummyjson.com/posts/add", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title: title,
-        body: body,
-        reactions: reactions,
-        userId: userId,
-        tags: tags,
-      }),
-    })
-      .then((res) => res.json())
-      .then((post) => {
-        addPost(post);
-        navigate("/");
-      });
-    userIdElement.current.value = "";
-    postTitleElement.current.value = "";
-    postBodyElement.current.value = "";
-    tagsElement.current.value = "";
+    // const userId = userIdElement.current.value;
+    // const title = postTitleElement.current.value;
+    // const body = postBodyElement.current.value;
+    // const tags = tagsElement.current.value.split(" ");
+    // const reactions = { likes: Number((Math.random() * 100).toFixed(0)) };
+    // userIdElement.current.value = "";
+    // postTitleElement.current.value = "";
+    // postBodyElement.current.value = "";
+    // tagsElement.current.value = "";
   };
   return (
-    <form className="create-post" onSubmit={handleSubmit}>
+    <Form method="POST" className="create-post">
       <div className="mb-3">
         <label htmlFor="userId" className="form-label">
           Enter Your User-Id Here
         </label>
         <input
           type="text"
-          ref={userIdElement}
+          name="userId"
           className="form-control"
           id="userId"
           placeholder="Your User Id"
@@ -60,7 +43,7 @@ const CreatePost = () => {
         </label>
         <input
           type="text"
-          ref={postTitleElement}
+          name="title"
           className="form-control"
           id="postTitle"
           placeholder="Post Title..."
@@ -73,7 +56,7 @@ const CreatePost = () => {
         <textarea
           type="text"
           rows={5}
-          ref={postBodyElement}
+          name="body"
           className="form-control"
           id="postBody"
           placeholder="Post Body..."
@@ -85,7 +68,7 @@ const CreatePost = () => {
         </label>
         <input
           type="text"
-          ref={tagsElement}
+          ref="tags"
           className="form-control"
           id="tags"
           placeholder="Post Body..."
@@ -94,8 +77,24 @@ const CreatePost = () => {
       <button type="submit" className="btn btn-primary">
         Submit
       </button>
-    </form>
+    </Form>
   );
 };
 
+export async function createPostAction(data) {
+  const formData = await data.request.formData();
+  const postData = Object.fromEntries(formData);
+  postData.tags = postData.tags.split(" ");
+  postData.reactions = { likes: Number((Math.random() * 100).toFixed(0)) };
+  fetch("https://dummyjson.com/posts/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(postData),
+  })
+    .then((res) => res.json())
+    .then((post) => {
+      addPost(post);
+    });
+  return redirect("/");
+}
 export default CreatePost;

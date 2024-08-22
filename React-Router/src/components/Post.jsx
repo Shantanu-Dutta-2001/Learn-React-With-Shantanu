@@ -6,7 +6,11 @@ const Post = ({ post }) => {
   const { deletePost } = useContext(PostList);
   return (
     <div className="card postCard" style={{ width: "30rem" }}>
-      <img src="..." className="card-img-top" alt="..." />
+      <img
+        src="https://png.pngtree.com/thumb_back/fh260/background/20240106/pngtree-coloful-nature-beautiful-scenery-image_15576031.jpg"
+        className="card-img-top"
+        alt="Post Image"
+      />
       <div className="card-body">
         <h5 className="card-title">
           {post.title}
