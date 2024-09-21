@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <h1 className="display-5 fw-bold text-body-emphasis">
-      Conuter React Redux
+      Counter React Redux
     </h1>
   );
 };

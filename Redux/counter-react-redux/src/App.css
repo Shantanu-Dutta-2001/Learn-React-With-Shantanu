@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+
+.my-divider {
+  margin-top: 10px;
+  border-top: 1px dashed black;
+  padding-top: 10px;
+}
+.my-header {
+  font-size: 35px;
+  font-weight: 400;
+  font-family: serif;
+}
