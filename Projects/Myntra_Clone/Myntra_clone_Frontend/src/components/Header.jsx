@@ -1,28 +1,29 @@
 import { IoMdPerson } from "react-icons/io";
 import { FaRegGrinHearts } from "react-icons/fa";
 import { IoBagCheck } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header>
       <div className="logo_container">
-        <a href="#">
+        <Link to="/">
           <img
             className="myntra_home"
             src="images/myntra_logo.webp"
             alt="Myntra Home"
           />
-        </a>
+        </Link>
       </div>
       <nav className="nav_bar">
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">Kids</a>
-        <a href="#">Home & Living</a>
-        <a href="#">Beauty</a>
-        <a href="#">
+        <Link to="#">Men</Link>
+        <Link to="#">Women</Link>
+        <Link to="#">Kids</Link>
+        <Link to="#">Home & Living</Link>
+        <Link to="#">Beauty</Link>
+        <Link to="#">
           Studio <sup>New</sup>
-        </a>
+        </Link>
       </nav>
       <div className="search_bar">
         <span className="material-symbols-outlined search_icon">search</span>
@@ -42,11 +43,11 @@ const Header = () => {
           <span className="action_name">Wishlist</span>
         </div>
 
-        <a className="action_container" href="pages/bag.html">
+        <Link className="action_container" to="/bag">
           <IoBagCheck />
           <span className="action_name">Bag</span>
           <span className="bag-item-count">0</span>
-        </a>
+        </Link>
       </div>
     </header>
   );
