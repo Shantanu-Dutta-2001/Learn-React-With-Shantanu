@@ -1,9 +1,11 @@
-import { IoMdPerson } from "react-icons/io";
-import { FaRegGrinHearts } from "react-icons/fa";
-import { IoBagCheck } from "react-icons/io5";
+import { BsFillPersonFill } from "react-icons/bs";
+import { FaFaceGrinHearts, FaBagShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const bag = useSelector((store) => store.bag);
+
   return (
     <header>
       <div className="logo_container">
@@ -16,14 +18,14 @@ const Header = () => {
         </Link>
       </div>
       <nav className="nav_bar">
-        <Link to="#">Men</Link>
-        <Link to="#">Women</Link>
-        <Link to="#">Kids</Link>
-        <Link to="#">Home & Living</Link>
-        <Link to="#">Beauty</Link>
-        <Link to="#">
+        <a href="#">Men</a>
+        <a href="#">Women</a>
+        <a href="#">Kids</a>
+        <a href="#">Home & Living</a>
+        <a href="#">Beauty</a>
+        <a href="#">
           Studio <sup>New</sup>
-        </Link>
+        </a>
       </nav>
       <div className="search_bar">
         <span className="material-symbols-outlined search_icon">search</span>
@@ -34,19 +36,19 @@ const Header = () => {
       </div>
       <div className="action_bar">
         <div className="action_container">
-          <IoMdPerson />
+          <BsFillPersonFill />
           <span className="action_name">Profile</span>
         </div>
 
         <div className="action_container">
-          <FaRegGrinHearts />
+          <FaFaceGrinHearts />
           <span className="action_name">Wishlist</span>
         </div>
 
         <Link className="action_container" to="/bag">
-          <IoBagCheck />
+          <FaBagShopping />
           <span className="action_name">Bag</span>
-          <span className="bag-item-count">0</span>
+          <span className="bag-item-count">{bag.length}</span>
         </Link>
       </div>
     </header>
